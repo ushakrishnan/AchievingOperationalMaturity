@@ -1,7 +1,5 @@
-# AchievingOperationalMaturity-
-Achieving Operational Maturity in ML + LLM Platforms:   A Deep Dive into Enterprise-Grade Components
+# Achieving Operational Maturity in ML + LLM Platforms:   A Deep Dive into Enterprise-Grade Components
 
-```markdown
 # Collaborative Book Project
 
 Welcome to the Collaborative Book Project! This is an open-source book where anyone can contribute. Our goal is to create a comprehensive and engaging book with the help of contributors from around the world.
@@ -14,11 +12,11 @@ You are free to use, modify, and distribute this book for any purpose, including
 
 This project is licensed under the MIT License. When using or distributing this book, please include the following attribution:
 
-```
-[Book Title]
+
+Achieving Operational Maturity in ML + LLM Platforms:   A Deep Dive into Enterprise-Grade Components
 Copyright (c) 2025 Usha Krishnan and Contributors
 Licensed under the MIT License.
-```
+
 
 ## Contributing
 
@@ -49,4 +47,3 @@ Happy writing!
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
-```
