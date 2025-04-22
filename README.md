@@ -16,7 +16,7 @@ This project is licensed under the MIT License. When using or distributing this 
 
 ```
 [Book Title]
-Copyright (c) [Year] [Your Name] and Contributors
+Copyright (c) 2025 Usha Krishnan and Contributors
 Licensed under the MIT License.
 ```
 
@@ -25,8 +25,8 @@ Licensed under the MIT License.
 We welcome contributions from everyone! Here’s how you can get involved:
 
 1. **Fork the Repository**: Click the "Fork" button at the top right of this page to create your own copy of the repository.
-2. **Clone the Repository**: Clone your forked repository to your local machine using `git clone https://github.com/your-username/your-repo-name.git`.
-3. **Create a New Branch**: Create a new branch for your changes using `git checkout -b your-branch-name`.
+2. **Clone the Repository**: Clone your forked repository to your local machine using `git clone https://github.com/ushakrishnan/AchievingOperationalMaturity-.git`.
+3. **Create a New Branch**: Create a new branch for your changes using `git checkout -b main`.
 4. **Make Your Changes**: Add your content or make edits to the existing content.
 5. **Commit Your Changes**: Commit your changes with a descriptive commit message using `git commit -m "Description of changes"`.
 6. **Push Your Changes**: Push your changes to your forked repository using `git push origin your-branch-name`.
@@ -50,5 +50,3 @@ Happy writing!
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
 ```
-
-Feel free to customize this `README.md` to better fit your project's needs. If you need any more help, just let me know!
