@@ -1,0 +1,21 @@
+# MinIO Configuration for Data Storage
+
+# This file contains the configuration settings for using MinIO as an object storage solution.
+
+# Start MinIO server
+export MINIO_ROOT_USER=minioadmin
+export MINIO_ROOT_PASSWORD=minioadmin
+
+minio server /data --console-address ":9001"
+
+# Access MinIO Console
+# Open your browser and navigate to http://localhost:9001
+# Use the following credentials to log in:
+# Username: minioadmin
+# Password: minioadmin
+
+# Create a bucket for storing data
+mc alias set local http://localhost:9000 minioadmin minioadmin
+mc mb local/mybucket
+
+# Note: Replace 'mybucket' with your desired bucket name.

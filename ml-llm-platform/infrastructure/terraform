@@ -1,0 +1,78 @@
+# Terraform Configuration for Azure Infrastructure
+
+provider "azurerm" {
+  features {}
+}
+
+# Resource Group
+resource "azurerm_resource_group" "main" {
+  name     = "ml-llm-platform-rg"
+  location = "East US"
+}
+
+# Virtual Network
+resource "azurerm_virtual_network" "main" {
+  name                = "ml-llm-platform-vnet"
+  address_space       = ["10.0.0.0/16"]
+  location            = azurerm_resource_group.main.location
+  resource_group_name = azurerm_resource_group.main.name
+}
+
+# Subnet
+resource "azurerm_subnet" "main" {
+  name                 = "ml-llm-platform-subnet"
+  resource_group_name  = azurerm_resource_group.main.name
+  virtual_network_name = azurerm_virtual_network.main.name
+  address_prefixes     = ["10.0.1.0/24"]
+}
+
+# Network Security Group
+resource "azurerm_network_security_group" "main" {
+  name                = "ml-llm-platform-nsg"
+  location            = azurerm_resource_group.main.location
+  resource_group_name = azurerm_resource_group.main.name
+}
+
+# Network Interface
+resource "azurerm_network_interface" "main" {
+  name                = "ml-llm-platform-nic"
+  location            = azurerm_resource_group.main.location
+  resource_group_name = azurerm_resource_group.main.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                    = azurerm_subnet.main.id
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+
+# Virtual Machine
+resource "azurerm_linux_virtual_machine" "main" {
+  name                = "ml-llm-platform-vm"
+  resource_group_name = azurerm_resource_group.main.name
+  location            = azurerm_resource_group.main.location
+  size                = "Standard_NC6" # Example size with GPU
+  admin_username      = "adminuser"
+  admin_password      = "P@ssw0rd1234!" # Use a secure password or SSH key
+
+  network_interface_ids = [
+    azurerm_network_interface.main.id,
+  ]
+
+  os_disk {
+    caching              = "ReadWrite"
+    create_option        = "FromImage"
+  }
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "18.04-LTS"
+    version   = "latest"
+  }
+}
+
+# Output the public IP address
+output "public_ip" {
+  value = azurerm_network_interface.main.ip_configuration[0].private_ip_address
+}

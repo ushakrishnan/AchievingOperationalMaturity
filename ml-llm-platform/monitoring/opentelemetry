@@ -1,0 +1,6 @@
+# Directory for OpenTelemetry configurations
+
+# This directory will contain configurations for using OpenTelemetry for observability in the ML/LLM platform.
+
+# Example configuration file for OpenTelemetry
+# This file is intentionally left blank.

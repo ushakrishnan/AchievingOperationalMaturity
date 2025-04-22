@@ -1,0 +1,33 @@
+# Delta Lake Setup Script
+
+# This script sets up Delta Lake on Azure, including necessary configurations and dependencies.
+
+import os
+from pyspark.sql import SparkSession
+
+def create_spark_session():
+    spark = SparkSession.builder \
+        .appName("DeltaLakeSetup") \
+        .config("spark.sql.extensions", "delta.sql.DeltaSparkSessionExtensions") \
+        .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") \
+        .getOrCreate()
+    return spark
+
+def setup_delta_lake(storage_path):
+    spark = create_spark_session()
+    
+    # Create a Delta table
+    data = [("Alice", 1), ("Bob", 2), ("Cathy", 3)]
+    df = spark.createDataFrame(data, ["name", "id"])
+    
+    # Write DataFrame to Delta Lake
+    df.write.format("delta").mode("overwrite").save(os.path.join(storage_path, "people_delta"))
+
+    # Read from Delta Lake
+    delta_df = spark.read.format("delta").load(os.path.join(storage_path, "people_delta"))
+    delta_df.show()
+
+if __name__ == "__main__":
+    # Define the storage path for Delta Lake
+    storage_path = "abfss://<your-container-name>@<your-storage-account-name>.dfs.core.windows.net/delta-lake/"
+    setup_delta_lake(storage_path)

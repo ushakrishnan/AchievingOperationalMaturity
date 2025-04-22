@@ -1,0 +1,49 @@
+# Apache NiFi Configuration and Scripts
+
+# This directory contains configurations and scripts for using Apache NiFi for data ingestion.
+
+# Example NiFi flow configuration (nifi_flow.xml)
+<flow>
+    <processors>
+        <processor>
+            <name>GetHTTP</name>
+            <type>org.apache.nifi.processors.standard.GetHTTP</type>
+            <properties>
+                <property>
+                    <name>URL</name>
+                    <value>http://example.com/data</value>
+                </property>
+                <property>
+                    <name>Output Destination</name>
+                    <value>flowfile</value>
+                </property>
+            </properties>
+        </processor>
+        <processor>
+            <name>PutDatabaseRecord</name>
+            <type>org.apache.nifi.processors.sql.PutDatabaseRecord</type>
+            <properties>
+                <property>
+                    <name>Database Connection Pooling Service</name>
+                    <value>DBCPConnectionPool</value>
+                </property>
+                <property>
+                    <name>Record Reader</name>
+                    <value>JsonTreeReader</value>
+                </property>
+                <property>
+                    <name>Table Name</name>
+                    <value>my_table</value>
+                </property>
+            </properties>
+        </processor>
+    </processors>
+    <connections>
+        <connection>
+            <source>GetHTTP</source>
+            <destination>PutDatabaseRecord</destination>
+        </connection>
+    </connections>
+</flow>
+
+# Note: This is a placeholder configuration. Adjust the properties and processors as needed for your specific use case.

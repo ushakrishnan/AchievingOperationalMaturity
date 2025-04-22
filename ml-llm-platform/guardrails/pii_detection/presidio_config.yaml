@@ -1,0 +1,38 @@
+version: 1.0
+presidio:
+  api_key: "YOUR_API_KEY"
+  endpoint: "https://api.presidio.yourdomain.com"
+  model:
+    name: "presidio-model"
+    version: "latest"
+  detection:
+    enabled: true
+    languages:
+      - "en"
+      - "es"
+    entities:
+      - "PHONE_NUMBER"
+      - "EMAIL_ADDRESS"
+      - "CREDIT_CARD"
+      - "DATE"
+      - "LOCATION"
+  logging:
+    level: "INFO"
+    file: "presidio_detection.log"
+    max_size: "10MB"
+    backup_count: 5
+
+# Presidio Configuration for PII Detection
+pii_detection:
+  recognizers:
+    - name: PERSON
+      enabled: true
+    - name: CREDIT_CARD
+      enabled: true
+    - name: EMAIL_ADDRESS
+      enabled: true
+  anonymizers:
+    default:
+      type: replace
+      new_value: "[REDACTED]"
+  log_level: INFO

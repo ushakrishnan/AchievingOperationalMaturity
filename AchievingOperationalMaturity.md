@@ -214,6 +214,32 @@ This version offers a SaaS-like experience with supported platforms and solution
     - **Telemetry and Logging**: Use Azure Monitor for monitoring and logging. Leverage Nvidia DCGM Exporter for GPU metrics.
     - **Cost Management**: Implement Azure Cost Management to track and optimize costs.
 
+
+## VERSION 3: Open Source for Portability Across All Hyperscalers
+
+By using open-source tools, this version ensures portability across all hyperscalers, allowing organizations to tailor their infrastructure, data processing, model development, and deployment processes to their specific needs. This approach is ideal for organizations that require flexibility and control over their ML and LLM platforms.
+
+1. **Infrastructure Setup**:
+- **Provision Open-Source VMs**: Use open-source virtualization tools like KVM or Xen to provision VMs. Install necessary drivers and tools for GPU acceleration.
+- **Containerization**: Use Docker or Podman for containerization. Enable GPU resources within containers using Nvidia Container Toolkit.
+
+2. **Data Ingestion and Preparation**:
+- **Data Storage**: Use MinIO for object storage or Apache Hadoop for distributed storage.
+- **Data Processing**: Use Apache Spark or Dask for data processing and transformation. Leverage Nvidia RAPIDS for GPU-accelerated data processing.
+
+3. **Model Development**:
+- **Notebook Environment**: Set up Jupyter Notebooks with open-source libraries like TensorFlow, PyTorch, and Nvidia RAPIDS for accelerated data manipulation and machine learning.
+- **Model Training**: Use TensorFlow or PyTorch with Nvidia CUDA for optimized performance.
+
+4. **Model Deployment**:
+- **Inference Server**: Deploy models using Triton Inference Server on Kubernetes. Configure autoscaling and load balancing.
+- **API Gateway**: Use Kong or Traefik to expose your model endpoints securely.
+
+5. **Monitoring and Optimization**:
+- **Telemetry and Logging**: Use Prometheus and Grafana for monitoring and logging. Leverage Nvidia DCGM Exporter for GPU metrics.
+- **Cost Management**: Implement Kubecost to track and optimize costs.
+
+
 #
 #
 

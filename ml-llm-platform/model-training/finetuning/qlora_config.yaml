@@ -1,0 +1,28 @@
+# qlora_config.yaml
+
+model_name: "your_model_name"
+learning_rate: 2e-5
+batch_size: 16
+num_epochs: 3
+max_seq_length: 512
+weight_decay: 0.01
+adam_epsilon: 1e-8
+warmup_steps: 500
+gradient_accumulation_steps: 2
+fp16: true
+logging_steps: 100
+save_steps: 500
+output_dir: "./output"
+evaluation_strategy: "steps"
+load_best_model_at_end: true
+metric_for_best_model: "accuracy"
+greater_is_better: true
+seed: 42
+
+# QLoRA specific configurations
+qlora:
+  use_qlora: true
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.1
+  target_modules: ["query", "key", "value"]

@@ -1,0 +1,11 @@
+# This directory is intended for Jupyter notebooks used for training LLM/ML models. 
+# You can create individual notebooks for different training tasks or experiments here. 
+# For example, you might have notebooks for data preprocessing, model training, evaluation, etc. 
+# Each notebook should be named descriptively to reflect its purpose. 
+
+# Example notebook files could include:
+# - data_preprocessing.ipynb
+# - model_training_experiment_1.ipynb
+# - model_evaluation.ipynb
+
+# This file is intentionally left blank.

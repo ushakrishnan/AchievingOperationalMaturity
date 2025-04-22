@@ -1,0 +1,32 @@
+# Contents of the file: /ml-llm-platform/ml-llm-platform/monitoring/kubecost/README.md
+
+# Kubecost Monitoring Configuration
+
+This directory contains configurations and scripts for setting up Kubecost, a tool for monitoring and managing Kubernetes costs. 
+
+## Overview
+
+Kubecost provides real-time cost monitoring and insights for Kubernetes clusters, helping teams understand their spending and optimize resource usage.
+
+## Setup Instructions
+
+1. **Install Kubecost**:
+   Follow the official [Kubecost installation guide](https://kubecost.com/install) to deploy Kubecost in your Kubernetes cluster.
+
+2. **Configuration**:
+   Customize the configuration files in this directory to suit your cluster's needs. Ensure that the necessary permissions and roles are set up for Kubecost to access the required resources.
+
+3. **Accessing the Dashboard**:
+   Once installed, you can access the Kubecost dashboard to view cost reports and insights.
+
+4. **Monitoring**:
+   Use the dashboard to monitor costs associated with your Kubernetes workloads, identify cost-saving opportunities, and analyze spending trends over time.
+
+## Files Included
+
+- `kubecost.yaml`: The main configuration file for deploying Kubecost in your Kubernetes cluster.
+- `prometheus-config.yaml`: Configuration for integrating Kubecost with Prometheus for enhanced monitoring capabilities.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
