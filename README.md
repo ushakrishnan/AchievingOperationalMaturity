@@ -12,11 +12,11 @@ You are free to use, modify, and distribute this book for any purpose, including
 
 This project is licensed under the MIT License. When using or distributing this book, please include the following attribution:
 
-
-Achieving Operational Maturity in ML + LLM Platforms:   A Deep Dive into Enterprise-Grade Components
+```
+Achieving Operational Maturity in ML + LLM Platforms: A Deep Dive into Enterprise-Grade Components
 Copyright (c) 2025 Usha Krishnan and Contributors
 Licensed under the MIT License.
-
+```
 
 ## Contributing
 
