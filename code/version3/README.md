@@ -2,202 +2,128 @@
 
 This folder contains the implementation of Version 3, which focuses on using open-source tools and frameworks to ensure portability across all hyperscalers. The components are designed to be vendor-agnostic, leveraging open-source technologies for infrastructure, data processing, model development, serving, and monitoring.
 
-## Key Components
+## Overview
 
-1. **Infrastructure & Orchestration**
-   - Provision VMs using open-source virtualization tools like KVM or Xen.
-   - Use Docker or Podman for containerization with Nvidia Container Toolkit for GPU acceleration.
-   - Kubernetes setup includes autoscaling and load balancing.
+Version 3 emphasizes portability and flexibility by leveraging open-source tools and frameworks. It is designed to work seamlessly across different cloud providers, ensuring that organizations are not locked into a single vendor.
 
-2. **Data Preparation, Validation, and Augmentation**
-   - Data preparation with Apache Spark or Dask.
-   - Data validation using Great Expectations, including schema validation.
-   - Data augmentation with Albumentations and AugLy.
-   - Synthetic data generation using SDV (Synthetic Data Vault).
+## Files and Their Purpose
 
-3. **Data Ingestion, Lineage, and Contracts**
-   - Data storage with MinIO or Apache Hadoop.
-   - Data processing with Apache Spark or Dask.
+1. **Infrastructure**
+   - **`provision_vms.sh`**: Provisions virtual machines using open-source virtualization tools like KVM or Xen. Includes Kubernetes setup for orchestration.
 
-4. **Model Development**
-   - Jupyter Notebooks with TensorFlow, PyTorch, and Nvidia RAPIDS.
-   - Model training with TensorFlow or PyTorch using Nvidia CUDA.
-   - Mixed precision training for performance optimization.
+2. **Data Pipeline**
+   - **`data_preparation.py`**: Handles data cleansing, augmentation, and synthetic data generation using tools like Dask and Albumentations.
+   - **`data_validation.py`**: Validates datasets using Great Expectations for schema validation and data integrity.
 
-5. **Model Serving and Inference**
-   - Deploy models using Triton Inference Server on Kubernetes.
-   - Use Kong or Traefik as API gateways.
-   - Multi-model serving support added to FastAPI application.
+3. **Model Training**
+   - **`train_model.py`**: Trains machine learning models using frameworks like PyTorch and TensorFlow. Includes mixed precision training for performance optimization.
 
-6. **Guardrails, Privacy & Governance**
-   - Prompt protection with Guardrails AI or Rebuff.
-   - PII redaction using Presidio, with enhanced logging and testing configurations.
-   - Access control with Keycloak and OPA.
+4. **Model Serving**
+   - **`serve_model.py`**: Deploys models for inference using Triton Inference Server and FastAPI. Supports multi-model serving.
 
-7. **LLMOps & Evaluation**
-   - Prompt observability with LangSmith or PromptLayer, including observability logging.
-   - Experiment tracking with MLflow or WandB.
-   - LLM evaluation using TruLens, Ragas, or LLMUnit, with tracking logging added.
+5. **Guardrails**
+   - **`pii_detection/presidio_config.yaml`**: Configures Presidio for PII detection and redaction.
+   - **`prompt_protection/guardrailsai_config.yaml`**: Configures Guardrails AI for prompt protection.
 
-8. **Monitoring, Observability & Cost**
-   - Monitoring with Prometheus and Grafana, integrated with Kubernetes.
-   - Cost management with Kubecost.
+6. **LLMOps**
+   - **`evaluation/trulens_eval.py`**: Evaluates models using TruLens with tracking logging for evaluation metrics.
+   - **`prompt_logs/promptlayer_integration.py`**: Logs prompts and responses using PromptLayer for observability.
 
-## Recent Updates
+7. **Monitoring**
+   - **Prometheus and Grafana**: Integrated for real-time monitoring.
+   - **Kubecost**: Provides cost management insights.
 
-- **Infrastructure Enhancements**:
-  - Added GPU acceleration support in `provision_vms.sh`.
-  - Integrated Kubernetes autoscaling and load balancing setup.
+## Workflow Diagram
 
-- **Data Pipeline Improvements**:
-  - Added distributed processing with Dask in `data_preparation.py`.
-  - Included data augmentation and synthetic data generation examples.
+The workflow diagram provides a visual representation of the steps involved in deploying and managing the ML and LLM platform in Version 3. It illustrates the sequence of operations and their relationships, helping users understand the overall process.
 
-- **Model Training Enhancements**:
-  - Introduced mixed precision training in `train_model.py` for performance optimization.
+![Workflow Diagram](workflow_diagram_adjusted_annotations.png)
 
-- **Model Serving Updates**:
-  - Added multi-model serving capability to `serve_model.py`.
+### Steps in the Workflow
 
-- **Privacy and Governance**:
-  - Enhanced Presidio and Guardrails AI configurations with logging and testing instructions.
+1. **Start**: The workflow begins with initializing the deployment process.
+2. **Provision VMs with GPU Acceleration**: Set up virtual machines with GPU support and Kubernetes for infrastructure and orchestration.
+3. **Set Up Data Pipeline**: Prepare, validate, and augment data using open-source tools like Great Expectations and Albumentations.
+4. **Model Training**: Train machine learning models using open-source frameworks such as PyTorch and TensorFlow.
+5. **Model Serving**: Deploy trained models for inference using Triton Inference Server.
+6. **Monitoring**: Monitor system health and costs using Prometheus, Grafana, and Kubecost.
+7. **End**: The workflow concludes after all components are deployed and operational.
 
-- **LLMOps Improvements**:
-  - Added observability logging to PromptLayer integration.
-  - Introduced tracking logging in TruLens evaluation script.
+The diagram file `workflow_diagram_adjusted_annotations.png` is located in this folder and can be used as a reference for understanding the deployment process.
 
-- **Monitoring Setup**:
-  - Documented Prometheus, Grafana, and Kubecost setup in this README.
+## How to Use These Files
 
-## Code Files Overview
+1. **Prerequisites**:
+   - Ensure you have the necessary dependencies installed (e.g., Python packages, Docker, Kubernetes).
+   - Install required tools like Dask, Great Expectations, and Triton Inference Server.
 
-### Infrastructure
-- **`provision_vms.sh`**:
-  - Provisions VMs using KVM and sets up GPU acceleration.
-  - Includes Kubernetes setup for autoscaling and load balancing.
-  - **Improvements**:
-    - Add error handling for failed installations.
-    - Automate network configuration for Kubernetes.
+2. **Deployment Steps**:
+   - Run `provision_vms.sh` to set up the infrastructure.
+   - Use `data_preparation.py` and `data_validation.py` for data pipeline setup.
+   - Train models using `train_model.py`.
+   - Deploy models using `serve_model.py`.
+   - Set up monitoring tools like Prometheus and Grafana.
 
-### Data Pipeline
-- **`data_preparation.py`**:
-  - Handles data cleansing, augmentation, and synthetic data generation.
-  - Uses Dask for distributed processing and Albumentations for augmentation.
-  - **Improvements**:
-    - Add support for more augmentation techniques.
-    - Optimize synthetic data generation for large datasets.
+3. **Order of Execution**:
+   - Start with infrastructure setup.
+   - Proceed to data pipeline configuration.
+   - Train and deploy models.
+   - Configure monitoring and observability.
 
-- **`data_validation.py`**:
-  - Validates datasets using Great Expectations.
-  - Includes schema validation for data integrity.
-  - **Improvements**:
-    - Add more comprehensive validation rules.
-    - Integrate with a data catalog for automated schema updates.
+## Additional Information
 
-### Model Training
-- **`train_model.py`**:
-  - Trains a simple neural network using PyTorch.
-  - Includes mixed precision training for performance optimization.
-  - **Improvements**:
-    - Add support for distributed training.
-    - Implement model checkpointing and early stopping.
-
-### Model Serving
-- **`serve_model.py`**:
-  - Serves models using FastAPI.
-  - Supports multi-model serving with dynamic model loading.
-  - **Improvements**:
-    - Add authentication and rate limiting for API endpoints.
-    - Integrate with a model registry for version control.
-
-### Guardrails
-- **`pii_detection/presidio_config.yaml`**:
-  - Configures Presidio for PII detection.
-  - Includes logging and testing instructions.
-  - **Improvements**:
-    - Add support for additional languages and entities.
-    - Automate configuration updates based on regulatory changes.
-
-- **`prompt_protection/guardrailsai_config.yaml`**:
-  - Configures Guardrails AI for prompt protection.
-  - Includes logging and testing instructions.
-  - **Improvements**:
-    - Add more granular protection rules.
-    - Integrate with a centralized logging system.
-
-### LLMOps
-- **`evaluation/trulens_eval.py`**:
-  - Evaluates models using TruLens.
-  - Includes tracking logging for evaluation metrics.
-  - **Improvements**:
-    - Add support for custom evaluation metrics.
-    - Automate evaluation pipeline for continuous integration.
-
-- **`prompt_logs/promptlayer_integration.py`**:
-  - Logs prompts and responses using PromptLayer.
-  - Includes observability logging for prompt tracking.
-  - **Improvements**:
-    - Add support for batch logging.
-    - Integrate with a monitoring dashboard for real-time insights.
-
-## How to Use
-
-Each component is implemented in its respective subfolder. Follow the instructions in the subfolders to set up and run the components.
-
-### Infrastructure Setup
-1. Run the `provision_vms.sh` script to provision VMs with GPU acceleration and Kubernetes setup.
-2. Apply Kubernetes manifests for autoscaling and load balancing.
-
-### Data Pipeline
-1. Use `data_preparation.py` for data cleansing, augmentation, and synthetic data generation.
-2. Validate datasets with `data_validation.py` using Great Expectations.
-
-### Model Training
-1. Train models using `train_model.py` with mixed precision training enabled.
-2. Use Jupyter Notebooks for experimentation.
-
-### Model Serving
-1. Deploy models using `serve_model.py` or Triton Inference Server.
-2. Use Kubernetes for scalable deployment.
-
-### Monitoring and Observability
-1. Deploy Prometheus and Grafana:
-   ```bash
-   kubectl apply -f prometheus-grafana.yaml
-   ```
-2. Deploy Kubecost:
-   ```bash
-   kubectl apply -f kubecost.yaml
-   ```
-3. Access dashboards:
-   - Prometheus: `http://<prometheus-url>`
-   - Grafana: `http://<grafana-url>`
-   - Kubecost: `http://<kubecost-url>`
+- **Security**: Includes configurations for PII detection and prompt protection.
+- **Customization**: Modify the scripts and configurations to suit your specific requirements.
+- **Support**: For issues or questions, refer to the main repository's documentation or contact the maintainer.
 
 ## Known Issues
 
-1. **Dependency Installation**:
-   - Ensure all required Python packages are installed. Missing dependencies can cause import errors.
-   - Use the `pip install` commands mentioned in the scripts to resolve dependency issues.
-
-2. **Infrastructure Setup**:
-   - Administrative privileges are required to run the `provision_vms.sh` script.
+1. **Infrastructure Setup**:
    - Ensure the host machine supports virtualization and has sufficient resources for VM provisioning.
 
-3. **Data Pipeline**:
+2. **Data Pipeline**:
    - Large datasets may cause memory issues during data preparation or validation. Consider using distributed processing frameworks like Apache Spark.
-   - Data validation may fail if the schema or expectations are not properly defined in Great Expectations.
 
-4. **Model Training**:
-   - Ensure the training dataset is available and correctly formatted.
+3. **Model Training**:
    - GPU acceleration requires compatible hardware and drivers (e.g., Nvidia CUDA).
 
-5. **Model Serving**:
-   - Ensure the trained model file (`mnist_model.pth`) exists before running the serving script.
-   - Use the correct API endpoints as defined in the FastAPI application.
-   - Verify that the serving environment has sufficient resources (e.g., memory, GPU).
+4. **Model Serving**:
+   - Ensure the trained model file exists before running the serving script.
 
-6. **General Troubleshooting**:
-   - Check log files for detailed error messages.
-   - Ensure all environment variables are correctly set as per the documentation.
-   - For any unresolved issues, open a GitHub issue or contact the maintainers.
+5. **Monitoring**:
+   - Verify that monitoring tools are correctly configured and accessible.
+
+## Suggested Improvements for Code Files
+
+### Infrastructure
+- **`provision_vms.sh`**:
+  - Add error handling for failed installations.
+  - Automate network configuration for Kubernetes.
+
+### Data Pipeline
+- **`data_preparation.py`**:
+  - Add support for more augmentation techniques.
+  - Optimize synthetic data generation for large datasets.
+
+- **`data_validation.py`**:
+  - Add more comprehensive validation rules.
+  - Integrate with a data catalog for automated schema updates.
+
+### Model Training
+- **`train_model.py`**:
+  - Add support for distributed training.
+  - Implement model checkpointing and early stopping.
+
+### Model Serving
+- **`serve_model.py`**:
+  - Add authentication and rate limiting for API endpoints.
+  - Integrate with a model registry for version control.
+
+### Monitoring
+- **Prometheus and Grafana**:
+  - Add custom dashboards for specific metrics.
+  - Include alerts for critical system events.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.

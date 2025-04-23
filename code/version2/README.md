@@ -1,23 +1,51 @@
 # Version 2: SaaS-Like Supported Platforms and Solutions
 
-This folder contains Bicep templates for deploying an end-to-end ML and LLM platform using managed services for simplicity and scalability. Each file corresponds to a specific component of the platform.
+This folder contains Bicep templates and related files for deploying an end-to-end ML and LLM platform using managed services for simplicity and scalability. Each file corresponds to a specific component of the platform.
+
+## Overview
+
+Version 2 leverages managed services to simplify the deployment and management of ML and LLM platforms. It provides scalability and ease of use by utilizing Azure's managed solutions for infrastructure, data processing, model development, serving, and monitoring.
 
 ## Files and Their Purpose
 
-1. **gpu_vm.bicep**
+1. **create_workflow_diagram.ipynb**
+   - A Jupyter Notebook to visualize the workflow diagram for Version 2.
+
+2. **gpu_vm.bicep**
    - Provisions a managed AKS cluster with Nvidia GPU support for infrastructure and orchestration.
 
-2. **data_pipeline.bicep**
+3. **data_pipeline.bicep**
    - Sets up Azure Data Factory for managed data preparation and validation.
 
-3. **model_training.bicep**
+4. **model_training.bicep**
    - Creates an Azure Machine Learning workspace and GPU-enabled compute cluster for managed model development.
 
-4. **model_serving.bicep**
+5. **model_serving.bicep**
    - Deploys a managed Azure ML Endpoint for model serving and inference.
 
-5. **monitoring.bicep**
+6. **monitoring.bicep**
    - Configures a Log Analytics workspace for managed monitoring and observability.
+
+7. **workflow_diagram_adjusted_annotations.png**
+   - A visual representation of the workflow for Version 2.
+
+## Workflow Diagram
+
+The workflow diagram provides a visual representation of the steps involved in deploying and managing the ML and LLM platform in Version 2. It illustrates the sequence of operations and their relationships, helping users understand the overall process.
+
+![Workflow Diagram](workflow_diagram_adjusted_annotations.png)
+
+### Steps in the Workflow
+
+1. **Start**: The workflow begins with initializing the deployment process.
+2. **Provision Managed AKS Cluster**: Set up a managed AKS cluster with Nvidia GPU support for infrastructure and orchestration.
+3. **Set Up Managed Data Pipeline**: Prepare and validate data using Azure Data Factory.
+4. **Model Training**: Train machine learning models using GPU resources in an Azure Machine Learning workspace.
+5. **Model Serving**: Deploy trained models for inference using Azure ML Endpoints.
+6. **Monitoring**: Monitor model performance and system health using Azure Monitor and Log Analytics.
+7. **End**: The workflow concludes after all components are deployed and operational.
+
+The diagram file `workflow_diagram_adjusted_annotations.png` is located in this folder and can be used as a reference for understanding the deployment process.
 
 ## How to Use These Files
 
@@ -59,43 +87,6 @@ This folder contains Bicep templates for deploying an end-to-end ML and LLM plat
 
 4. **monitoring.bicep**:
    - The resource type `Microsoft.OperationalInsights/workspaces@2022-09-01` does not have types available for validation in Bicep. Ensure all properties are correctly defined before deployment.
-
-## Suggested Improvements for Code Files
-
-### Infrastructure
-- **`gpu_vm.bicep`**:
-  - Provisions GPU-optimized VMs for AI workloads.
-  - **Improvements**:
-    - Add support for autoscaling and load balancing.
-    - Include GPU monitoring tools like Nvidia DCGM.
-
-### Data Pipeline
-- **`data_pipeline.bicep`**:
-  - Sets up Azure Data Factory for data preparation and validation.
-  - **Improvements**:
-    - Add support for distributed data processing frameworks like Apache Spark.
-    - Integrate data validation tools like Great Expectations.
-
-### Model Training
-- **`model_training.bicep`**:
-  - Creates an Azure Machine Learning workspace and GPU-enabled compute cluster.
-  - **Improvements**:
-    - Add mixed precision training support.
-    - Include experiment tracking tools like MLflow.
-
-### Model Serving
-- **`model_serving.bicep`**:
-  - Deploys a managed Azure ML Endpoint for model serving and inference.
-  - **Improvements**:
-    - Add multi-model serving capabilities.
-    - Integrate with an API gateway for secure access.
-
-### Monitoring
-- **`monitoring.bicep`**:
-  - Configures a Log Analytics workspace for monitoring and observability.
-  - **Improvements**:
-    - Add support for Prometheus and Grafana for real-time monitoring.
-    - Include cost management tools like Kubecost.
 
 ## License
 

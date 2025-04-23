@@ -1,33 +1,49 @@
-# ml-llm-platform
+# Generic ML-LLM Platform
 
 ## Overview
 
-The **ml-llm-platform** project is designed to provide a comprehensive framework for developing, deploying, and managing Machine Learning (ML) and Large Language Model (LLM) applications. This project encompasses various components including data ingestion, model training, serving, monitoring, and operational governance, ensuring a robust and scalable architecture.
+The **Generic ML-LLM Platform** provides a comprehensive framework for developing, deploying, and managing Machine Learning (ML) and Large Language Model (LLM) applications. It includes components for data ingestion, model training, serving, monitoring, and operational governance, ensuring a robust and scalable architecture.
 
 ## Purpose
 
-The primary goal of this project is to facilitate the end-to-end workflow for ML and LLM applications, leveraging modern tools and practices to enhance productivity and efficiency. The platform is structured to support various cloud environments and can be customized to meet specific organizational needs.
+The primary goal of this platform is to facilitate the end-to-end workflow for ML and LLM applications, leveraging modern tools and practices to enhance productivity and efficiency. The platform is structured to support various cloud environments and can be customized to meet specific organizational needs.
 
 ## Project Structure
 
 The project is organized into several key directories:
 
-- **infrastructure/**: Contains Terraform configurations and Kubernetes manifests for infrastructure setup.
+- **agents/**: Contains configurations for various AI agents, such as `crewai` and `langgraph`.
 - **data-pipeline/**: Includes components for data ingestion, storage, and validation.
-- **model-training/**: Houses Jupyter notebooks, fine-tuning scripts, and tracking setups for model training.
-- **serving/**: Contains configurations for model inference and API gateway setups.
-- **llmops/**: Includes evaluation scripts, prompt logging, and pipeline configurations.
+  - **ingestion/**: Tools like Airbyte and Apache NiFi for data ingestion.
+  - **storage/**: Configurations for Delta Lake and MinIO.
+  - **validation/**: Great Expectations for data validation.
 - **guardrails/**: Focuses on privacy and security measures for ML applications.
+  - **pii_detection/**: Presidio configurations for PII detection.
+  - **prompt_protection/**: Guardrails AI configurations for prompt protection.
+- **infrastructure/**: Contains Terraform configurations and Kubernetes manifests for infrastructure setup.
+- **llmops/**: Includes evaluation scripts, pipelines, and prompt logging configurations.
+  - **evaluation/**: Scripts like `ragas_eval.ipynb` and `trulens_eval.py` for model evaluation.
+  - **pipelines/**: LangChain pipeline configurations.
+  - **prompt_logs/**: PromptLayer integration for logging.
+- **model-training/**: Houses Jupyter notebooks, fine-tuning scripts, and tracking setups for model training.
+  - **finetuning/**: Scripts like `peft_lora.py` and `qlora_config.yaml` for fine-tuning.
+  - **tracking/**: MLflow setup for experiment tracking.
+  - **vector_store/**: FAISS setup for vector storage.
 - **monitoring/**: Contains tools for observability and cost management.
-- **agents/**: Includes configurations for various AI agents.
+  - **kubecost/**: Cost management tools.
+  - **opentelemetry/**: OpenTelemetry configurations for tracing.
+  - **prometheus_grafana/**: Prometheus and Grafana for monitoring.
+- **serving/**: Configurations for model inference and API gateway setups.
+  - **api_gateway/**: FastAPI application for serving models.
+  - **inference/**: Tools like Triton and vLLM Server for inference.
 - **tests/**: Contains unit and integration tests to ensure code quality.
 
-## Setup Instructions
+## How to Use
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/ml-llm-platform.git
-   cd ml-llm-platform
+   git clone https://github.com/yourusername/generic-ml-llm-platform.git
+   cd generic-ml-llm-platform
    ```
 
 2. **Install Dependencies**:
