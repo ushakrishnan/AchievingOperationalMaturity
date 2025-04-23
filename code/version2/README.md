@@ -1,25 +1,23 @@
-# Version 1: Full Control and Customization
+# Version 2: SaaS-Like Supported Platforms and Solutions
 
-This folder contains Bicep templates for deploying an end-to-end ML and LLM platform with full control and customization. Each file corresponds to a specific component of the platform.
+This folder contains Bicep templates for deploying an end-to-end ML and LLM platform using managed services for simplicity and scalability. Each file corresponds to a specific component of the platform.
 
 ## Files and Their Purpose
 
 1. **gpu_vm.bicep**
-   - Provisions GPU-optimized virtual machines (VMs) for running AI workloads.
-   - Includes secure configurations and autoscaling options.
+   - Provisions a managed AKS cluster with Nvidia GPU support for infrastructure and orchestration.
 
 2. **data_pipeline.bicep**
-   - Sets up data preparation, validation, and augmentation pipelines.
-   - Provisions Azure Storage and Data Factory resources.
+   - Sets up Azure Data Factory for managed data preparation and validation.
 
 3. **model_training.bicep**
-   - Creates an Azure Machine Learning workspace and GPU-enabled compute cluster for model development.
+   - Creates an Azure Machine Learning workspace and GPU-enabled compute cluster for managed model development.
 
 4. **model_serving.bicep**
-   - Deploys an Azure Kubernetes Service (AKS) cluster and inference server for model serving and inference.
+   - Deploys a managed Azure ML Endpoint for model serving and inference.
 
 5. **monitoring.bicep**
-   - Configures monitoring and observability using Azure Monitor and Log Analytics.
+   - Configures a Log Analytics workspace for managed monitoring and observability.
 
 ## How to Use These Files
 
@@ -28,7 +26,7 @@ This folder contains Bicep templates for deploying an end-to-end ML and LLM plat
    - Install the Bicep CLI or use Azure CLI with Bicep support.
 
 2. **Deployment Steps**:
-   - Navigate to the `version1` folder.
+   - Navigate to the `version2` folder.
    - Deploy each Bicep file using the following command:
      ```bash
      az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE_NAME>
@@ -56,8 +54,11 @@ This folder contains Bicep templates for deploying an end-to-end ML and LLM plat
 2. **model_training.bicep**:
    - The resource types `Microsoft.MachineLearningServices/workspaces@2022-09-01` and `Microsoft.MachineLearningServices/workspaces/computes@2022-09-01` do not have types available for validation in Bicep. Ensure all properties are correctly defined before deployment.
 
-3. **monitoring.bicep**:
-   - The resource types `Microsoft.OperationalInsights/workspaces@2022-09-01` and `Microsoft.Insights/components@2022-09-01` do not have types available for validation in Bicep. Ensure all properties are correctly defined before deployment.
+3. **model_serving.bicep**:
+   - The resource type `Microsoft.MachineLearningServices/workspaces/onlineEndpoints@2022-09-01` does not have types available for validation in Bicep. Ensure all properties are correctly defined before deployment.
+
+4. **monitoring.bicep**:
+   - The resource type `Microsoft.OperationalInsights/workspaces@2022-09-01` does not have types available for validation in Bicep. Ensure all properties are correctly defined before deployment.
 
 ## License
 
