@@ -14,6 +14,16 @@ batch_request = BatchRequest(
 
 # Validate data
 validator = context.get_validator(batch_request=batch_request)
+
+# Add schema validation example
+schema = {
+    "columns": [
+        {"name": "column1", "type": "string"},
+        {"name": "column2", "type": "integer"}
+    ]
+}
+validator.expect_table_columns_to_match_ordered_list(schema)
+
 expectation_suite_name = "default"
 results = validator.validate(expectation_suite_name=expectation_suite_name)
 

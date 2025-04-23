@@ -1,0 +1,8 @@
+# Add example for testing Guardrails AI
+logging:
+  enabled: true
+  log_level: "debug"
+  log_file: "guardrails_debug.log"
+
+# Example usage
+# Test prompt protection with sample prompts

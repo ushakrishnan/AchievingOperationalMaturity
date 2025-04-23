@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torchvision import datasets, transforms
+from torch.cuda.amp import GradScaler, autocast
 
 # Define a simple neural network
 class SimpleNN(nn.Module):
@@ -24,14 +25,19 @@ model = SimpleNN()
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=0.01)
 
-# Training loop
+# Add mixed precision training
+scaler = GradScaler()
+
+# Training loop with mixed precision
 for epoch in range(5):
     for images, labels in train_loader:
         optimizer.zero_grad()
-        outputs = model(images)
-        loss = criterion(outputs, labels)
-        loss.backward()
-        optimizer.step()
+        with autocast():
+            outputs = model(images)
+            loss = criterion(outputs, labels)
+        scaler.scale(loss).backward()
+        scaler.step(optimizer)
+        scaler.update()
     print(f"Epoch {epoch+1}, Loss: {loss.item()}")
 
 # Save the model

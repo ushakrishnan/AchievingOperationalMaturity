@@ -27,3 +27,12 @@ def predict(data: list):
     with torch.no_grad():
         predictions = model(tensor_data)
     return {"predictions": predictions.tolist()}
+
+# Add multi-model serving example
+@app.post("/load_model")
+def load_model(model_name: str):
+    global model
+    model = SimpleNN()
+    model.load_state_dict(torch.load(f"{model_name}.pth"))
+    model.eval()
+    return {"status": "Model loaded successfully"}

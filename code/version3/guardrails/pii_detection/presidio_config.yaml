@@ -1,0 +1,10 @@
+# Add example for testing Presidio integration
+logging:
+  level: "DEBUG"
+  file: "presidio_debug.log"
+  max_size: "5MB"
+  backup_count: 3
+
+# Example usage
+# Ensure Presidio API is running and accessible
+# Test PII detection with sample data
