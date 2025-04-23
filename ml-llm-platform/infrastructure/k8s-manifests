@@ -1,1 +1,35 @@
-# This file is intentionally left blank.
+# Kubernetes Deployment Manifest for LLM Inference Server
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-inference-server
+  namespace: llm-platform
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: llm-inference
+  template:
+    metadata:
+      labels:
+        app: llm-inference
+    spec:
+      containers:
+      - name: inference-server
+        image: nvidia/tritonserver:latest
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+        ports:
+        - containerPort: 8000
+        env:
+        - name: MODEL_REPOSITORY
+          value: "/models"
+        volumeMounts:
+        - mountPath: /models
+          name: model-storage
+      volumes:
+      - name: model-storage
+        persistentVolumeClaim:
+          claimName: model-pvc

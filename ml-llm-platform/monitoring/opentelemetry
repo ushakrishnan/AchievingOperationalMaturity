@@ -2,5 +2,24 @@
 
 # This directory will contain configurations for using OpenTelemetry for observability in the ML/LLM platform.
 
-# Example configuration file for OpenTelemetry
-# This file is intentionally left blank.
+# OpenTelemetry Configuration
+
+# This script sets up OpenTelemetry for observability in the ML/LLM platform.
+# Replace placeholders with actual configurations.
+
+from opentelemetry import trace
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter
+
+# Set up the tracer provider
+trace.set_tracer_provider(TracerProvider())
+tracer = trace.get_tracer(__name__)
+
+# Configure span processor and exporter
+span_processor = BatchSpanProcessor(ConsoleSpanExporter())
+trace.get_tracer_provider().add_span_processor(span_processor)
+
+if __name__ == "__main__":
+    # Example trace
+    with tracer.start_as_current_span("example-span"):
+        print("OpenTelemetry tracing is set up.")

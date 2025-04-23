@@ -1,1 +1,15 @@
-# This file is intentionally left blank.
+# Integration Tests for the ML-LLM Platform
+
+import requests
+
+def test_inference_endpoint():
+    """Test the inference endpoint for the LLM API Gateway."""
+    url = "http://localhost:8000/inference"
+    payload = {"input_text": "Hello, world!"}
+    response = requests.post(url, json=payload)
+    assert response.status_code == 200
+    assert "output_text" in response.json()
+
+if __name__ == "__main__":
+    test_inference_endpoint()
+    print("Integration test passed.")
