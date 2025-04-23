@@ -104,11 +104,11 @@ Model development involves using notebooks and IDEs for model training and fine-
 
 Key Capabilities: Notebooks & IDEs, Sparse model optimization**,** LLM finetuning
 
-| **Component**                 | **Open-Source   / Red Hat** | **Neural   Magic** | **Microsoft   Azure**     | **AWS**            | **Google   Cloud**  |
-| ----------------------------- | --------------------------- | ------------------ | ------------------------- | ------------------ | ------------------- |
-| **Notebook Environment**      | JupyterHub on OpenShift     | N/A                | Azure ML Studio Notebooks | SageMaker Studio   | Vertex AI Workbench |
-| **Sparse Inference/Training** | DeepSparse (Neural Magic)   | DeepSparse         | N/A                       | N/A                | N/A                 |
-| **Finetuning LLMs**           | HuggingFace + PEFT          | N/A                | LoRA in Azure ML          | QLoRA in Sagemaker | LoRA in Vertex AI   |
+| Component                  | Open-Source / Red Hat      | NVIDIA                   | Microsoft Azure            | AWS                 | Google Cloud         |
+| -------------------------- | -------------------------- | ------------------------ | -------------------------- | ------------------- | -------------------- |
+| Notebook  Environment      | JupyterHub on  OpenShift   | N/A                      | Azure ML  Studio Notebooks | SageMaker  Studio   | Vertex AI  Workbench |
+| Sparse  Inference/Training | DeepSparse (Neural  Magic) | Triton Inference  Server | N/A                        | N/A                 | N/A                  |
+| Finetuning  LLMs           | HuggingFace +  PEFT        | N/A                      | LoRA in Azure  ML          | QLoRA in  Sagemaker | LoRA in  Vertex AI   |
 
 
 ## 5. Model Serving and Inference
