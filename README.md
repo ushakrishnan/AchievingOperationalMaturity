@@ -1,8 +1,8 @@
 # Achieving Operational Maturity in ML + LLM Platforms:   A Deep Dive into Enterprise-Grade Components
 
-# Collaborative[ebook](./AchievingOperationalMaturity.md)Project
+# Collaborative Ebook Project
 
-Welcome to the Collaborative [ebook](./AchievingOperationalMaturity.md) Project! This is an open-source [ebook](./AchievingOperationalMaturity.md) where anyone can contribute. Our goal is to create a comprehensive and engaging[ebook](./AchievingOperationalMaturity.md)with the help of contributors from around the world.
+Welcome to the Collaborative [ebook](./AchievingOperationalMaturity.md) Project! This is an open-source ebook where anyone can contribute. Our goal is to create a comprehensive and engaging ebook with the help of contributors from around the world.
 
 ## Usage
 
