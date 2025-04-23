@@ -1,16 +1,16 @@
 # Achieving Operational Maturity in ML + LLM Platforms:   A Deep Dive into Enterprise-Grade Components
 
-# Collaborative Book Project
+# Collaborative eBook Project
 
-Welcome to the Collaborative Book Project! This is an open-source book where anyone can contribute. Our goal is to create a comprehensive and engaging book with the help of contributors from around the world.
+Welcome to the Collaborative eBook Project! This is an open-source ebook where anyone can contribute. Our goal is to create a comprehensive and engaging ebook with the help of contributors from around the world.
 
 ## Usage
 
-You are free to use, modify, and distribute this book for any purpose, including commercial use. The only requirement is that you provide proper attribution to the original authors.
+You are free to use, modify, and distribute this ebook for any purpose, including commercial use. The only requirement is that you provide proper attribution to the original authors.
 
 ## Attribution
 
-This project is licensed under the MIT License. When using or distributing this book, please include the following attribution:
+This project is licensed under the MIT License. When using or distributing this ebook, please include the following attribution:
 
 ```
 Achieving Operational Maturity in ML + LLM Platforms: A Deep Dive into Enterprise-Grade Components
@@ -33,7 +33,7 @@ We welcome contributions from everyone! Here’s how you can get involved:
 ## Guidelines
 
 - **Be Respectful**: Please be respectful and considerate in your contributions. We aim to create a positive and inclusive environment.
-- **Stay On Topic**: Ensure that your contributions are relevant to the book's subject matter.
+- **Stay On Topic**: Ensure that your contributions are relevant to the ebook's subject matter.
 - **Quality Over Quantity**: Focus on providing high-quality content rather than the volume of contributions.
 
 ## Contact

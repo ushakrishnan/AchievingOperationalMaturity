@@ -14,13 +14,14 @@ effectively.
 The essential components for achieving operational maturity in ML + LLM
 platforms include:
 1. Infrastructure & Orchestration: This includes GPU/CPU workload orchestration, DevOps pipelines, and cluster autoscaling. Various providers like Red Hat, NVIDIA, Microsoft Azure, AWS, and Google Cloud offer different solutions for managing infrastructure effectively.
-2. Data Ingestion, Lineage, and Contracts: This encompasses tools for
+2. Data Preparation, Validation, and Augmentation: These tasks ensure the readiness, accuracy, and enhancement of data for training and inference. These processes are critical for achieving high-performing and robust ML models by ensuring the data used is comprehensive and consistent.
+3. Data Ingestion, Lineage, and Contracts: This encompasses tools for
 ingesting structured and unstructured data, validating schema/data contracts, and tracking data lineage. Open-source tools like Apache NiFi and Airbyte are commonly used in this area.
-3. Model Development: This involves using notebooks and IDEs for model training and fine-tuning. Key technologies include JupyterHub, HuggingFace, and Azure ML Studio.
-4. Model Serving and Inference: Efficient model serving is critical for scalable LLM inference. Tools like Triton Inference Server and Azure Endpoints facilitate this process.
-5. Guardrails, Privacy & Governance: This component focuses on ensuring security through prompt protection, PII redaction, and access control policies. Technologies like Presidio and Azure Content Safety are instrumental here.
-6. LLMOps & Evaluation: This involves prompt versioning, observability, and experiment tracking to monitor model performance and address hallucination detection. Tools such as MLflow and LangSmith are utilized.
-7. Monitoring, Observability & Cost: Effective monitoring includes token-level monitoring, resource usage dashboards, and drift detection, supported by tools like Prometheus and Azure Monitor.
+4. Model Development: This involves using notebooks and IDEs for model training and fine-tuning. Key technologies include JupyterHub, HuggingFace, and Azure ML Studio.
+5. Model Serving and Inference: Efficient model serving is critical for scalable LLM inference. Tools like Triton Inference Server and Azure Endpoints facilitate this process.
+6. Guardrails, Privacy & Governance: This component focuses on ensuring security through prompt protection, PII redaction, and access control policies. Technologies like Presidio and Azure Content Safety are instrumental here.
+7. LLMOps & Evaluation: This involves prompt versioning, observability, and experiment tracking to monitor model performance and address hallucination detection. Tools such as MLflow and LangSmith are utilized.
+8. Monitoring, Observability & Cost: Effective monitoring includes token-level monitoring, resource usage dashboards, and drift detection, supported by tools like Prometheus and Azure Monitor.
 
 ## Conclusion
 Operational maturity is a measurable set of practices and components that must be intentionally integrated into every layer of an ML or LLM platform. By understanding how these components are implemented across various vendors, organizations can build secure, observable, scalable,
