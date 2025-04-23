@@ -153,7 +153,7 @@ Key Capabilities: Prompt versioning and observability, Experiment tracking, Hall
 | ------------------------ | --------------------------- | ---------- | ------------------------- | ------------------------- | ------------------------------ |
 | **Prompt Observability** | LangSmith, PromptLayer      | N/A        | Azure Monitor (custom)    | CloudWatch + Bedrock Logs | Cloud Trace + Vertex Pipelines |
 | **Experiment Tracking**  | MLflow, WandB               | N/A        | Azure ML                  | SageMaker Experiments     | Vertex AI Experiments          |
-| **LLM Evaluation**       | TruLens, Ragas, LLMUnit     | N/A        | Responsible AI Dashboards | Clarify (for bias)        | Vertex AI Eval                 |
+| **LLM Evaluation**       | TruLens, Ragas, LLMUnit     | N/A        | Responsible AI Dashboards, Azure AI evaluation SDK | Clarify (for bias)        | Vertex AI Eval                 |
 
 
 ## 8. Monitoring, Observability & Cost
