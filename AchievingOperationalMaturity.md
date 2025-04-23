@@ -23,6 +23,11 @@ ingesting structured and unstructured data, validating schema/data contracts, an
 7. LLMOps & Evaluation: This involves prompt versioning, observability, and experiment tracking to monitor model performance and address hallucination detection. Tools such as MLflow and LangSmith are utilized.
 8. Monitoring, Observability & Cost: Effective monitoring includes token-level monitoring, resource usage dashboards, and drift detection, supported by tools like Prometheus and Azure Monitor.
 
+Also included a full chapter where we present a few opinionated versions of an end-to-end workflows -
+- VERSION 1: Full Control and Customization
+- VERSION 2: SaaS-Like Supported Platforms and Solutions
+- VERSION 3: Open Source for Portability Across All Hyperscalers
+
 ## Conclusion
 Operational maturity is a measurable set of practices and components that must be intentionally integrated into every layer of an ML or LLM platform. By understanding how these components are implemented across various vendors, organizations can build secure, observable, scalable,
 and cost-effective systems that transform ML/LLM experiments into robust enterprise-grade solutions.
@@ -175,7 +180,10 @@ By understanding how these components map across vendors, organizations can conf
 
 ## Opinionated versions of end-to-end workflow on Azure using Nvidia hardware:
 
-In this section, we present two opinionated versions of an end-to-end workflow on Azure using Nvidia hardware. 
+In this section, we present a few opinionated versions of an end-to-end workflows-
+- VERSION 1: Full Control and Customization
+- VERSION 2: SaaS-Like Supported Platforms and Solutions
+- VERSION 3: Open Source for Portability Across All Hyperscalers
 
 ## VERSION 1: Full Control and Customization
 
