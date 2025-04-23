@@ -59,6 +59,43 @@ This folder contains Bicep templates for deploying an end-to-end ML and LLM plat
 3. **monitoring.bicep**:
    - The resource types `Microsoft.OperationalInsights/workspaces@2022-09-01` and `Microsoft.Insights/components@2022-09-01` do not have types available for validation in Bicep. Ensure all properties are correctly defined before deployment.
 
+## Suggested Improvements for Code Files
+
+### Infrastructure
+- **`gpu_vm.bicep`**:
+  - Provisions GPU-optimized VMs for AI workloads.
+  - **Improvements**:
+    - Add support for Kubernetes orchestration.
+    - Include GPU monitoring tools like Nvidia DCGM.
+
+### Data Pipeline
+- **`data_pipeline.bicep`**:
+  - Sets up data preparation, validation, and augmentation pipelines.
+  - **Improvements**:
+    - Add support for distributed data processing frameworks like Apache Spark.
+    - Integrate data validation tools like Great Expectations.
+
+### Model Training
+- **`model_training.bicep`**:
+  - Creates an Azure Machine Learning workspace and GPU-enabled compute cluster.
+  - **Improvements**:
+    - Add mixed precision training support.
+    - Include experiment tracking tools like MLflow.
+
+### Model Serving
+- **`model_serving.bicep`**:
+  - Deploys an Azure Kubernetes Service (AKS) cluster and inference server for model serving and inference.
+  - **Improvements**:
+    - Add multi-model serving capabilities.
+    - Integrate with an API gateway for secure access.
+
+### Monitoring
+- **`monitoring.bicep`**:
+  - Configures monitoring and observability using Azure Monitor and Log Analytics.
+  - **Improvements**:
+    - Add support for Prometheus and Grafana for real-time monitoring.
+    - Include cost management tools like Kubecost.
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.

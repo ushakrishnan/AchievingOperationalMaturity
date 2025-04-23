@@ -69,6 +69,77 @@ This folder contains the implementation of Version 3, which focuses on using ope
 - **Monitoring Setup**:
   - Documented Prometheus, Grafana, and Kubecost setup in this README.
 
+## Code Files Overview
+
+### Infrastructure
+- **`provision_vms.sh`**:
+  - Provisions VMs using KVM and sets up GPU acceleration.
+  - Includes Kubernetes setup for autoscaling and load balancing.
+  - **Improvements**:
+    - Add error handling for failed installations.
+    - Automate network configuration for Kubernetes.
+
+### Data Pipeline
+- **`data_preparation.py`**:
+  - Handles data cleansing, augmentation, and synthetic data generation.
+  - Uses Dask for distributed processing and Albumentations for augmentation.
+  - **Improvements**:
+    - Add support for more augmentation techniques.
+    - Optimize synthetic data generation for large datasets.
+
+- **`data_validation.py`**:
+  - Validates datasets using Great Expectations.
+  - Includes schema validation for data integrity.
+  - **Improvements**:
+    - Add more comprehensive validation rules.
+    - Integrate with a data catalog for automated schema updates.
+
+### Model Training
+- **`train_model.py`**:
+  - Trains a simple neural network using PyTorch.
+  - Includes mixed precision training for performance optimization.
+  - **Improvements**:
+    - Add support for distributed training.
+    - Implement model checkpointing and early stopping.
+
+### Model Serving
+- **`serve_model.py`**:
+  - Serves models using FastAPI.
+  - Supports multi-model serving with dynamic model loading.
+  - **Improvements**:
+    - Add authentication and rate limiting for API endpoints.
+    - Integrate with a model registry for version control.
+
+### Guardrails
+- **`pii_detection/presidio_config.yaml`**:
+  - Configures Presidio for PII detection.
+  - Includes logging and testing instructions.
+  - **Improvements**:
+    - Add support for additional languages and entities.
+    - Automate configuration updates based on regulatory changes.
+
+- **`prompt_protection/guardrailsai_config.yaml`**:
+  - Configures Guardrails AI for prompt protection.
+  - Includes logging and testing instructions.
+  - **Improvements**:
+    - Add more granular protection rules.
+    - Integrate with a centralized logging system.
+
+### LLMOps
+- **`evaluation/trulens_eval.py`**:
+  - Evaluates models using TruLens.
+  - Includes tracking logging for evaluation metrics.
+  - **Improvements**:
+    - Add support for custom evaluation metrics.
+    - Automate evaluation pipeline for continuous integration.
+
+- **`prompt_logs/promptlayer_integration.py`**:
+  - Logs prompts and responses using PromptLayer.
+  - Includes observability logging for prompt tracking.
+  - **Improvements**:
+    - Add support for batch logging.
+    - Integrate with a monitoring dashboard for real-time insights.
+
 ## How to Use
 
 Each component is implemented in its respective subfolder. Follow the instructions in the subfolders to set up and run the components.
