@@ -135,11 +135,11 @@ Guardrails, privacy, and governance focus on ensuring security through prompt pr
 
 Key Capabilities: Prompt injection detection, PII redaction, Access control and policies
 
-| **Component**         | **Open-Source   / Red Hat** | **NVIDIA** | **Microsoft   Azure**  | **AWS**            | **Google   Cloud** |
-| --------------------- | --------------------------- | ---------- | ---------------------- | ------------------ | ------------------ |
-| **Prompt Protection** | Guardrails AI, Rebuff       | N/A        | Azure Content Safety   | Bedrock Guardrails | Perspective API    |
-| **PII Redaction**     | Presidio                    | N/A        | Presidio (OSS from MS) | Macie              | DLP API            |
-| **RBAC + Policy**     | Keycloak + OPA              | N/A        | Azure RBAC + Policy    | IAM + SCP          | IAM + Conditions   |
+| **Component**      | **Open-Source   / Red Hat** | **NVIDIA**               | **Microsoft   Azure**   | **AWS**             | **Google   Cloud** |
+| ------------------ | --------------------------- | ------------------------ | ----------------------- | ------------------- | ------------------ |
+| Prompt  Protection | Guardrails  AI, Rebuff      | NeMo  Guardrails         | Azure  Content Safety   | Bedrock  Guardrails | Perspective  API   |
+| PII  Redaction     | Presidio                    | Clara  Dataset Validator | Presidio  (OSS from MS) | Macie               | DLP API            |
+| RBAC +  Policy     | Keycloak  + OPA             | RAPIDS                   | Azure  RBAC + Policy    | IAM +  SCP          | IAM +  Conditions  |
 
 
 ## 7. LLMOps & Evaluation
@@ -153,7 +153,7 @@ Key Capabilities: Prompt versioning and observability, Experiment tracking, Hall
 | ------------------------ | --------------------------- | ---------- | ------------------------- | ------------------------- | ------------------------------ |
 | **Prompt Observability** | LangSmith, PromptLayer      | N/A        | Azure Monitor (custom)    | CloudWatch + Bedrock Logs | Cloud Trace + Vertex Pipelines |
 | **Experiment Tracking**  | MLflow, WandB               | N/A        | Azure ML                  | SageMaker Experiments     | Vertex AI Experiments          |
-| **LLM Evaluation**       | TruLens, Ragas, LLMUnit     | N/A        | Responsible AI Dashboards, Azure AI evaluation SDK | Clarify (for bias)        | Vertex AI Eval                 |
+| **LLM Evaluation**       | TruLens, Ragas, LLMUnit     | NVIDIA Evals Factory, LM-Evaluation-Harness        | Responsible AI Dashboards, Azure AI evaluation SDK | Clarify (for bias)        | Vertex AI Eval                 |
 
 
 ## 8. Monitoring, Observability & Cost
