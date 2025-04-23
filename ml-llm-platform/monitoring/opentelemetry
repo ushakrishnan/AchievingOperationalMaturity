@@ -5,7 +5,8 @@
 # OpenTelemetry Configuration
 
 # This script sets up OpenTelemetry for observability in the ML/LLM platform.
-# Replace placeholders with actual configurations.
+# It configures tracing with a console exporter for debugging purposes.
+# Replace placeholders with actual configurations for production use.
 
 from opentelemetry import trace
 from opentelemetry.sdk.trace import TracerProvider

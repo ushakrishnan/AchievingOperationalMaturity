@@ -1,12 +1,13 @@
 # vLLM Server Configuration
 
 # This script sets up the vLLM server for efficient LLM inference.
-# Replace placeholders with actual model paths and configurations.
+# It initializes the server with the specified model path and configurations.
+# Ensure the model path is accessible and the server is properly secured.
 
 from vllm import LLMServer
 
 # Define the model path and server configurations
-model_path = "/path/to/your/model"
+model_path = "/path/to/your/model"  # Replace with the actual model path
 server = LLMServer(model_path=model_path, port=8000, num_workers=4)
 
 if __name__ == "__main__":

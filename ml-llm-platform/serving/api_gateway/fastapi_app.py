@@ -1,3 +1,7 @@
+# This FastAPI application serves as the API gateway for the LLM platform.
+# It provides endpoints for inference, health checks, and other utilities.
+# Ensure the inference server URL is correctly configured and secured.
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
@@ -18,6 +22,7 @@ class InferenceResponse(BaseModel):
 def run_inference(request: InferenceRequest):
     """
     Forward the request to the LLM inference server and return the response.
+    Ensure the inference server URL is correctly configured.
     """
     try:
         # Replace with the actual inference server URL
