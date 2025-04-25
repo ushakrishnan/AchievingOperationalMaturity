@@ -70,7 +70,7 @@ Infrastructure and orchestration involve setting up and managing the hardware an
 
 Key Capabilities: GPU/CPU workload orchestration, DevOps pipelines, Cluster autoscaling
 
-| **Component**              | **Open-Source   / Red Hat** | **NVIDIA**     | **Microsoft   Azure**        | **AWS**                 | **Google   Cloud** |
+| **Component**              | **Open Source / OpenShift AI** | **NVIDIA**     | **Microsoft   Azure**        | **AWS**                 | **Google   Cloud** |
 | -------------------------- | --------------------------- | -------------- | ---------------------------- | ----------------------- | ------------------ |
 | **Container Platform**     | OKD / OpenShift             | NGC containers | Azure Kubernetes Service     | Amazon EKS              | GKE                |
 | **CI/CD**                  | Argo CD, Tekton             | N/A            | GitHub Actions, Azure DevOps | CodePipeline, CodeBuild | Cloud Build        |
@@ -84,7 +84,7 @@ Data preparation, validation, and augmentation are essential steps in machine le
 Key Capabilities: Prepare raw data for ML workflows through cleansing and transformation, Validate datasets to ensure integrity and accuracy, Augment datasets to improve diversity and robustness, Generate synthetic data for scenarios with limited real-world data
 
 
-| **Component**                  | **Open-Source / Red Hat**  | **NVIDIA**               | **Microsoft Azure**      | **AWS**                        | **Google Cloud**                   |
+| **Component**                  | **Open Source / OpenShift AI**  | **NVIDIA**               | **Microsoft Azure**      | **AWS**                        | **Google Cloud**                   |
 | ------------------------------ | -------------------------- | ------------------------ | ------------------------ | ------------------------------ | ---------------------------------- |
 | **Data Preparation**           | Apache Spark, Pandas       | RAPIDS cuDF              | Azure Data Factory       | AWS Glue                       | Cloud Dataflow                     |
 | **Data  Validation**           | Great  Expectations        | Clara Dataset  Validator | Azure Purview            | AWS Deequ                      | TensorFlow  Data Validation (TFDV) |
@@ -97,7 +97,7 @@ Data ingestion, lineage, and contracts encompass the processes of ingesting stru
 
 Key Capabilities: Ingest structured and unstructured data, Validate schema/data contracts, Track data lineage and versions
 
-| **Component**          | **Open-Source   / Red Hat** | **NVIDIA** | **Microsoft   Azure**    | **AWS**               | **Google   Cloud**     |
+| **Component**          | **Open Source / OpenShift AI** | **NVIDIA** | **Microsoft   Azure**    | **AWS**               | **Google   Cloud**     |
 | ---------------------- | --------------------------- | ---------- | ------------------------ | --------------------- | ---------------------- |
 | **ETL / Ingestion**    | Apache NiFi, Airbyte        | RAPIDS     | Azure Data Factory       | Glue, MSK             | Dataflow, Pub/Sub      |
 | **Data Contracts**     | Great Expectations, Pandera | N/A        | Azure Purview + Profiler | Deequ, Glue Schema    | Dataplex, Data Catalog |
@@ -109,11 +109,11 @@ Model development involves using notebooks and IDEs for model training and fine-
 
 Key Capabilities: Notebooks & IDEs, Sparse model optimization**,** LLM finetuning
 
-| Component                  | Open-Source / Red Hat      | NVIDIA                   | Microsoft Azure            | AWS                 | Google Cloud         |
+| **Component**              | **Open Source / OpenShift AI**    | **NVIDIA**                | **Microsoft Azure**         | **AWS**               | **Google Cloud**       |
 | -------------------------- | -------------------------- | ------------------------ | -------------------------- | ------------------- | -------------------- |
-| Notebook  Environment      | JupyterHub on  OpenShift   | N/A                      | Azure ML  Studio Notebooks | SageMaker  Studio   | Vertex AI  Workbench |
-| Sparse  Inference/Training | DeepSparse (Neural  Magic) | Triton Inference  Server | N/A                        | N/A                 | N/A                  |
-| Finetuning  LLMs           | HuggingFace +  PEFT        | N/A                      | LoRA in Azure  ML          | QLoRA in  Sagemaker | LoRA in  Vertex AI   |
+| **Notebook  Environment**     | JupyterHub on  OpenShift   | N/A                      | Azure ML  Studio Notebooks | SageMaker  Studio   | Vertex AI  Workbench |
+| **Sparse  Inference/Training** | DeepSparse (Neural  Magic) | Triton Inference  Server | N/A                        | N/A                 | N/A                  |
+| **Finetuning  LLMs**         | HuggingFace +  PEFT        | N/A                      | LoRA in Azure  ML          | QLoRA in  Sagemaker | LoRA in  Vertex AI   |
 
 
 ## 5. Model Serving and Inference
@@ -123,7 +123,7 @@ Model serving and inference involve deploying models for scalable LLM inference,
 Key Capabilities: Scalable LLM inference, Multi-model serving, Efficient
 model runtimes
 
-| **Component**          | **Open-Source   / Red Hat** | **NVIDIA**   | **Microsoft   Azure** | **AWS**            | **Google   Cloud** |
+| **Component**          | **Open Source / OpenShift AI** | **NVIDIA**   | **Microsoft   Azure** | **AWS**            | **Google   Cloud** |
 | ---------------------- | --------------------------- | ------------ | --------------------- | ------------------ | ------------------ |
 | **Inference Server**   | Triton Inference Server     | Triton       | Azure Endpoint        | SageMaker Endpoint | Vertex AI Endpoint |
 | **LLM Serving**        | vLLM, HuggingFace TGI       | TensorRT-LLM | Azure OpenAI          | Bedrock            | PaLM API           |
@@ -135,7 +135,7 @@ Guardrails, privacy, and governance focus on ensuring security through prompt pr
 
 Key Capabilities: Prompt injection detection, PII redaction, Access control and policies
 
-| **Component**      | **Open-Source   / Red Hat** | **NVIDIA**               | **Microsoft   Azure**   | **AWS**             | **Google   Cloud** |
+| **Component**      | **Open Source / OpenShift AI** | **NVIDIA**               | **Microsoft   Azure**   | **AWS**             | **Google   Cloud** |
 | ------------------ | --------------------------- | ------------------------ | ----------------------- | ------------------- | ------------------ |
 | Prompt  Protection | Guardrails  AI, Rebuff      | NeMo  Guardrails         | Azure  Content Safety   | Bedrock  Guardrails | Perspective  API   |
 | PII  Redaction     | Presidio                    | Clara  Dataset Validator | Presidio  (OSS from MS) | Macie               | DLP API            |
@@ -149,7 +149,7 @@ performance and address issues. These components are essential for maintaining t
 
 Key Capabilities: Prompt versioning and observability, Experiment tracking, Hallucination detection
 
-| **Component**            | **Open-Source   / Red Hat** | **NVIDIA** | **Microsoft   Azure**     | **AWS**                   | **Google   Cloud**             |
+| **Component**            | **Open Source / OpenShift AI** | **NVIDIA** | **Microsoft   Azure**     | **AWS**                   | **Google   Cloud**             |
 | ------------------------ | --------------------------- | ---------- | ------------------------- | ------------------------- | ------------------------------ |
 | **Prompt Observability** | LangSmith, PromptLayer      | N/A        | Azure Monitor (custom)    | CloudWatch + Bedrock Logs | Cloud Trace + Vertex Pipelines |
 | **Experiment Tracking**  | MLflow, WandB               | N/A        | Azure ML                  | SageMaker Experiments     | Vertex AI Experiments          |
@@ -162,7 +162,7 @@ Monitoring, observability, and cost management include token-level monitoring, r
 
 Key Capabilities: Token-level monitoring, Resource usage dashboards, Drift detection
 
-| **Component**            | **Open-Source   / Red Hat** | **NVIDIA**    | **Microsoft   Azure**   | **AWS**                 | **Google   Cloud**      |
+| **Component**            | **Open Source / OpenShift AI** | **NVIDIA**    | **Microsoft   Azure**   | **AWS**                 | **Google   Cloud**      |
 | ------------------------ | --------------------------- | ------------- | ----------------------- | ----------------------- | ----------------------- |
 | **Metrics & Dashboards** | Prometheus + Grafana        | DCGM Exporter | Azure Monitor + Grafana | CloudWatch Dashboards   | Cloud Monitoring        |
 | **Cost Tracking**        | Kubecost                    | N/A           | Azure Cost Management   | Cost Explorer           | Billing + Cost Insights |
